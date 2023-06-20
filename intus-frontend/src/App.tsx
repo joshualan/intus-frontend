@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.css";
-
+import "./App.scss";
+import { Navbar } from "@/components/navbar";
+import { Participants } from "@/features/participants";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Whereas recognition of the inherent dignity</p>
-      </header>
+      <Navbar />
+      <Participants />
     </div>
   );
 }
