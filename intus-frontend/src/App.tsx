@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.scss";
-import { Navbar } from "@/components/navbar";
-import { Participants } from "@/features/participants";
+import { RouterProvider, router } from "@/routes";
+
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Participants />
+      <RouterProvider router={router} />
     </div>
   );
 }

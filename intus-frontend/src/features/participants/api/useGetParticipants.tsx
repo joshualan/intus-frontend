@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 // could be replaced by react-query
 // quick and dirty fetch in the meantime
 
-type Participant = {
+export type Participant = {
   name: string;
   codes: number;
   diagnoses: {

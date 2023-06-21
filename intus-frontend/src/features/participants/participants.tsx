@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { useGetParticipants, Participant } from "./api/useGetParticipants";
+import { ReactComponent as OrderFilterDown } from "@/assets/orderFilter_Down.svg";
+import { Card as IntusCard } from "@/components/card";
 import "./participants.scss";
-import { CaretDownSquare, CaretUpSquare } from "react-bootstrap-icons";
-import { useGetParticipants } from "./api/useGetParticipants";
 
 export const Participants = () => {
-  const [sortAscending, setSortAscending] = useState<boolean>(true);
-  const { loading, data: participants = [], error } = useGetParticipants();
+  const [sortAscending, setSortAscending] = useState<boolean>(false);
+  const [participants, setParticipants] = useState<Participant[]>([]);
+  const { loading, data = [], error } = useGetParticipants();
 
   useEffect(() => {
-    participants.sort((a, b) => {
-      if (sortAscending) {
-        return a.codes - b.codes;
+    const sorted = data.sort((a, b) => {
+      if (a.name < b.name) {
+        return sortAscending ? 1 : -1;
       }
-      return b.codes - a.codes;
+      if (a.name > b.name) {
+        return sortAscending ? -1 : 1;
+      }
+      return 0;
     });
-  }, [sortAscending]);
 
-  useEffect(() => {
-    console.log(participants);
-  }, [participants]);
+    setParticipants([...sorted]);
+  }, [sortAscending, data]);
 
   if (loading) {
     return <div>...loading</div>;
@@ -30,41 +33,34 @@ export const Participants = () => {
   }
 
   return (
-    <Card className="idk border-0 intus-shadow w-75">
+    <IntusCard className="participant-table mt-3 border-0 w-75">
       <Card.Body className="w-auto">
         <Container className="m-0">
           <Row className="table-header">
-            <Col xs={9}>Participant Name</Col>
-            <Col xs={3}>
-              ICD Code
-              {sortAscending ? (
-                <CaretDownSquare
-                  onClick={() => setSortAscending((prev) => !prev)}
-                  className="sortIcon"
-                />
-              ) : (
-                <CaretUpSquare
-                  onClick={() => setSortAscending((prev) => !prev)}
-                  className="sortIcon"
-                />
-              )}
+            <Col xs={9}>
+              Participant Name
+              <OrderFilterDown
+                onClick={() => setSortAscending((prev) => !prev)}
+                className={`ms-3 ${!sortAscending && "rotate"}`}
+              />
             </Col>
+            <Col xs={3}>ICD Code</Col>
           </Row>
           <hr />
           {participants.map(({ name, codes }) => {
             return (
-              <Card key={name} className="mb-3 intus-shadow participant-row">
+              <IntusCard key={name} className="mb-3 participant-row">
                 <Card.Body>
                   <Row>
                     <Col xs={9}>{name}</Col>
                     <Col xs={3}>{codes}</Col>
                   </Row>
                 </Card.Body>
-              </Card>
+              </IntusCard>
             );
           })}
         </Container>
       </Card.Body>
-    </Card>
+    </IntusCard>
   );
 };
