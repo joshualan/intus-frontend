@@ -27,49 +27,55 @@ export const Participants = () => {
       </div>
       <Container>
         <Row>
-          <IntusCard className="participant-table mt-3 border-0">
-            <Card.Body className="w-auto">
-              <Container className="m-0">
-                <Row className="table-header">
-                  <Col xs={9}>
-                    Participant Name
-                    <OrderFilterDown
-                      onClick={() => setSortAscending((prev) => !prev)}
-                      className={`ms-3 ${!sortAscending && "rotate"}`}
-                    />
-                  </Col>
-                  <Col xs={3}>ICD Code</Col>
-                </Row>
-                <hr />
-                {data
-                  .sort((a, b) => {
-                    if (a.name < b.name) {
-                      return sortAscending ? 1 : -1;
-                    }
-                    if (a.name > b.name) {
-                      return sortAscending ? -1 : 1;
-                    }
-                    return 0;
-                  })
-                  .map(({ name, codes, id }) => {
-                    return (
-                      <IntusCard
-                        key={name}
-                        onClick={() => navigate(`/participants/${id}`)}
-                        className="mb-3 participant-row"
-                      >
-                        <Card.Body>
-                          <Row>
-                            <Col xs={9}>{name}</Col>
-                            <Col xs={3}>{codes}</Col>
-                          </Row>
-                        </Card.Body>
-                      </IntusCard>
-                    );
-                  })}
-              </Container>
-            </Card.Body>
-          </IntusCard>
+          <Col>
+            <IntusCard className="participant-table my-3 border-0">
+              <Card.Body className="w-auto">
+                <Container className="m-0">
+                  <Row className="table-header">
+                    <Col xs={9}>
+                      Participant Name
+                      <OrderFilterDown
+                        onClick={() => setSortAscending((prev) => !prev)}
+                        className={`ms-3 ${!sortAscending && "rotate"}`}
+                      />
+                    </Col>
+                    <Col xs={3}>ICD Codes</Col>
+                  </Row>
+                  <hr />
+                  {data
+                    .sort((a, b) => {
+                      if (a.name < b.name) {
+                        return sortAscending ? 1 : -1;
+                      }
+                      if (a.name > b.name) {
+                        return sortAscending ? -1 : 1;
+                      }
+                      return 0;
+                    })
+                    .map(({ name, codes, id }) => {
+                      return (
+                        <IntusCard
+                          key={name}
+                          onClick={() => navigate(`/participants/${id}`)}
+                          className="mb-3 participant-row"
+                        >
+                          <Card.Body>
+                            <Row>
+                              <Col xs={9}>{name}</Col>
+                              <Col xs={3}>
+                                <span className="bg-transparent icd">
+                                  {codes}
+                                </span>
+                              </Col>
+                            </Row>
+                          </Card.Body>
+                        </IntusCard>
+                      );
+                    })}
+                </Container>
+              </Card.Body>
+            </IntusCard>
+          </Col>
         </Row>
       </Container>
     </>

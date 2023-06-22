@@ -23,13 +23,13 @@ export const Participant = () => {
 
   return (
     <Container className="p-4">
-      <Row>
-        <Col xs={12} md={2}>
+      <Row className="g-3">
+        <Col xs={12} lg={2}>
           <IntusButton onClick={() => navigate(-1)}>
             <H3 className={"m-0 py-2 px-3"}> {"< Back"}</H3>
           </IntusButton>
         </Col>
-        <Col xs={12} md={10}>
+        <Col xs={12} lg={10}>
           <IntusCard className={"participant w-100 p-2"}>
             <Card.Body>
               <Container fluid>

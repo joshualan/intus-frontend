@@ -40,7 +40,6 @@ export const useGetIcdCodes = (id: number | undefined) => {
               return { code: diagnoses[index].icdCode, name };
             });
 
-            console.log(translations);
             setData({
               name: `${firstName} ${lastName}`,
               translations: translations,

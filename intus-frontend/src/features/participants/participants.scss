@@ -5,8 +5,8 @@
 
 .participant-table {
   border-radius: 20px !important;
-  max-width: 1250px;
   font-size: 20px;
+  min-width: 512px !important;
 }
 
 .participant-row {
@@ -25,4 +25,8 @@
 
 .rotate {
   transform: rotate(180deg);
+}
+
+.icd {
+  color: #062d8f;
 }
