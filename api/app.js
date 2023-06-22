@@ -12,7 +12,7 @@ app.get("/participants", (_, res) => {
 
 app.get("/participant/:id", (req, res) => {
   const {id} = req.params;
-  res.json(participants[id] || {});
+  res.json(participants[id-1] || {});
 });
 
 module.exports = { app };

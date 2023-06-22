@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { useGetParticipants, Participant } from "./api/useGetParticipants";
+import { useGetParticipants } from "./api/useGetParticipants";
 import { ReactComponent as OrderFilterDown } from "@/assets/orderFilter_Down.svg";
 import { Card as IntusCard } from "@/components/card";
 import { H2 } from "@/components/header";

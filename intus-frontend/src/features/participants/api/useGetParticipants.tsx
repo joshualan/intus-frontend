@@ -28,7 +28,7 @@ export const useGetParticipants = () => {
             id: participant.id,
             name: `${participant.firstName} ${participant.lastName}`,
             codes: (participant.diagnoses || []).length,
-            diagnoses: participant.diagnoses,
+            diagnoses: participant.diagnoses || [],
           };
         });
 

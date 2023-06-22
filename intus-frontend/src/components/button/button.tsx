@@ -4,9 +4,10 @@ import { PropsWithChildren } from "react";
 export const Button = ({
   className,
   children,
-}: PropsWithChildren<{ className?: string }>) => {
+  onClick,
+}: PropsWithChildren<{ className?: string; onClick?: () => void }>) => {
   return (
-    <BootstrapButton className={`intus-button ${className}`}>
+    <BootstrapButton onClick={onClick} className={`intus-button ${className}`}>
       {children}
     </BootstrapButton>
   );
