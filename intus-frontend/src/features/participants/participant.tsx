@@ -26,7 +26,7 @@ export const Participant = () => {
       <Row className="g-3">
         <Col xs={12} lg={2}>
           <IntusButton onClick={() => navigate(-1)}>
-            <H3 className={"m-0 py-2 px-3"}> {"< Back"}</H3>
+            <H3 className={"m-0 py-2 px-3 back"}> {"< Back"}</H3>
           </IntusButton>
         </Col>
         <Col xs={12} lg={10}>
@@ -34,7 +34,7 @@ export const Participant = () => {
             <Card.Body>
               <Container fluid>
                 <Row className="p-0 participant-header">
-                  <H2 className="p-0">{data?.name}</H2>
+                  <H2 className="p-0 name">{data?.name}</H2>
                   <hr />
                 </Row>
                 <Row className="codes">
