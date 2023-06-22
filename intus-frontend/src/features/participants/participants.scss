@@ -1,7 +1,13 @@
+.header {
+  color: #062d8f;
+  float: left;
+}
+
 .participant-table {
   border-radius: 20px !important;
   max-width: 1250px;
   font-size: 20px;
+  align-self: center;
 }
 
 .participant-row {

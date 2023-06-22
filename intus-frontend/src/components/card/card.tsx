@@ -5,9 +5,10 @@ import "./card.scss";
 export const Card = ({
   children,
   className,
-}: PropsWithChildren<{ className: string }>) => {
+  onClick,
+}: PropsWithChildren<{ className?: string; onClick?: () => void }>) => {
   return (
-    <BootstrapCard className={`${className} intus-card`}>
+    <BootstrapCard onClick={onClick} className={`${className} intus-card`}>
       {children}
     </BootstrapCard>
   );

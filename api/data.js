@@ -19,13 +19,14 @@ function makeParticipants(numParticipants) {
 
   for (let i = 0; i < numParticipants; i++) {
     result.push({
+      id: i + 1,
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       dateOfBirth: faker.date.past(10, new Date(1950, 0, 1)),
       gender: faker.random.arrayElement(["MALE", "FEMALE", "NON-BINARY"]),
       phoneNumber: faker.datatype.number({ min: 1000000000, max: 9999999999 }),
       patientNotes: faker.random.arrayElement([faker.lorem.text(), null]),
-      diagnoses: makeDiagnosis(10),
+      diagnoses: makeDiagnosis(Math.floor(Math.random() * 10) + 1),
     });
   }
 

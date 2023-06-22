@@ -382,14 +382,14 @@ const ICD_CODE = [
   "Z99.81",
   "Z77.110",
   "Z79.899",
-  "newAdmitLogic",
-  "edVisit",
-  "readmit",
-  "multipleAdmit",
-  "nursingFacility",
-  "assistedLiving",
-  "homelessShelter",
-  "homeFamily",
+  // "newAdmitLogic",
+  // "edVisit",
+  // "readmit",
+  // "multipleAdmit",
+  // "nursingFacility",
+  // "assistedLiving",
+  // "homelessShelter",
+  // "homeFamily",
 ];
 
 module.exports = { ICD_CODE };

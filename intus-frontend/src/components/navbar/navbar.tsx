@@ -9,10 +9,7 @@ import { ReactComponent } from "@/assets/logo_IntusCare.svg";
 
 export const Navbar = () => {
   return (
-    <BootstrapNavbar
-      sticky={"top"}
-      className="bg-body-tertiary w-100 p-0 mh-25"
-    >
+    <BootstrapNavbar fixed={"top"} className="bg-body-tertiary p-0 mh-25">
       <Container className="m-0">
         <NavbarBrand>
           <ReactComponent className="ms-4" />

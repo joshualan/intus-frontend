@@ -10,4 +10,9 @@ app.get("/participants", (_, res) => {
   res.json(participants);
 });
 
+app.get("/participant/:id", (req, res) => {
+  const {id} = req.params;
+  res.json(participants[id] || {});
+});
+
 module.exports = { app };

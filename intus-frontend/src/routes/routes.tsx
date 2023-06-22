@@ -9,10 +9,10 @@ import { Navbar } from "@/components/navbar";
 export const routes: RouteObject[] = [
   {
     element: (
-      <>
+      <div className="w-100 h-100" style={{ paddingTop: "120px" }}>
         <Navbar />
         <Outlet />
-      </>
+      </div>
     ),
 
     children: [
@@ -26,7 +26,7 @@ export const routes: RouteObject[] = [
         element: <Participants />,
       },
       {
-        path: "/participants/:name",
+        path: "/participants/:id",
         element: <Participant />,
       },
     ],

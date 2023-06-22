@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // quick and dirty fetch in the meantime
 
 export type Participant = {
+  id: number;
   name: string;
   codes: number;
   diagnoses: {
@@ -24,6 +25,7 @@ export const useGetParticipants = () => {
       .then((json) => {
         const participants = json.map((participant: any = {}) => {
           return {
+            id: participant.id,
             name: `${participant.firstName} ${participant.lastName}`,
             codes: (participant.diagnoses || []).length,
             diagnoses: participant.diagnoses,
